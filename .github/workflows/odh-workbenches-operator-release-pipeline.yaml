@@ -260,6 +260,7 @@ jobs:
   create-pr:
     name: Create release pull request
     needs: push-branch
+    if: ${{ always() && needs.push-branch.result == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -312,6 +313,7 @@ jobs:
   summary:
     name: Release pipeline summary
     needs: create-pr
+    if: ${{ always() && needs.create-pr.result == 'success' }}
     runs-on: ubuntu-latest
     permissions: {}
     steps:
