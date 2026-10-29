@@ -312,7 +312,7 @@ jobs:
 
   summary:
     name: Release pipeline summary
-    needs: create-pr
+    needs: [push-branch, create-pr]
     if: ${{ always() && needs.create-pr.result == 'success' }}
     runs-on: ubuntu-latest
     permissions: {}

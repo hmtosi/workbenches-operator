@@ -43,7 +43,7 @@ jobs:
 
           if [[ "$BEFORE_SHA" == "0000000000000000000000000000000000000000" ]]; then
             echo "is_release=false" >> "$GITHUB_OUTPUT"
-            echo "First push to $RELEASE_BRANCH; no previous commit is available for comparison."
+            echo "First push to branch - no previous commit is available for comparison."
             exit 0
           fi
 
